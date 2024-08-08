@@ -11,8 +11,8 @@ struct vec2 {
 };
 
 /**
- * Binary Rect.  A rectangle that is recursively and evenly subdivided along
- * alternated axes.
+ * @brief Binary Rectangle. A rectangle that is recursively and evenly subdivided along
+ * alternating axes.
  */
 class BRect : public std::enable_shared_from_this<BRect> {
  public:
@@ -33,7 +33,7 @@ class BRect : public std::enable_shared_from_this<BRect> {
   auto getLeaves() -> std::vector<std::shared_ptr<BRect>>;
 
   /**
-   * @return The number of end columns
+   * @return The number of leaf columns
    */
   inline constexpr int getNumCols() {
     int exp = (levels / 2) + (levels % 2);
@@ -41,7 +41,7 @@ class BRect : public std::enable_shared_from_this<BRect> {
   };
 
   /**
-   * @return The number of end rows
+   * @return The number of leaf rows
    */
   inline constexpr int getNumRows() { return pow(2, levels / 2); };
 

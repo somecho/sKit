@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(sKit LANGUAGES CXX)
+project(sKit VERSION 0.0.1 LANGUAGES CXX)
 
 add_library(${PROJECT_NAME} STATIC)
 
@@ -27,7 +27,7 @@ install(TARGETS ${PROJECT_NAME}
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include
+    INCLUDES DESTINATION include/sKit
 )
 
-install(FILES ${SKIT_PUBLIC_HEADERS} DESTINATION include)
+install(FILES ${SKIT_PUBLIC_HEADERS} DESTINATION include/sKit)
