@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <memory>
+#include <optional>
 #include <vector>
 
 namespace s {
@@ -11,8 +12,8 @@ struct vec2 {
 };
 
 /**
- * @brief Binary Rectangle. A rectangle that is recursively and evenly subdivided along
- * alternating axes.
+ * @brief Binary Rectangle. A rectangle that is recursively and evenly
+ * subdivided along alternating axes.
  */
 class BRect : public std::enable_shared_from_this<BRect> {
  public:
@@ -31,6 +32,7 @@ class BRect : public std::enable_shared_from_this<BRect> {
   /** @return All leaf nodes of the current `BRect`, i.e. nodes without `left`
    * and without `right` children. */
   auto getLeaves() -> std::vector<std::shared_ptr<BRect>>;
+  auto getLeafAt(int x, int y) -> std::optional<std::shared_ptr<BRect>>;
 
   /**
    * @return The number of leaf columns
@@ -43,7 +45,9 @@ class BRect : public std::enable_shared_from_this<BRect> {
   /**
    * @return The number of leaf rows
    */
-  inline constexpr int getNumRows() { return pow(2, levels / 2); };
+  inline constexpr int getNumRows() { 
+    return pow(2, levels / 2); 
+    };
 
   float x, y, width, height;
   std::shared_ptr<BRect> left, right;

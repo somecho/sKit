@@ -48,3 +48,13 @@ auto s::Kit::BRect::getLeaves() -> std::vector<std::shared_ptr<BRect>> {
   }
   return leaves;
 }
+
+auto s::Kit::BRect::getLeafAt(int x,
+                              int y) -> std::optional<std::shared_ptr<BRect>> {
+  for (auto leaf : getLeaves()) {
+    if (leaf->id.x == x && leaf->id.y == y) {
+      return leaf;
+    }
+  }
+  return std::nullopt;
+};

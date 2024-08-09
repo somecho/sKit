@@ -31,3 +31,12 @@ install(TARGETS ${PROJECT_NAME}
 )
 
 install(FILES ${SKIT_PUBLIC_HEADERS} DESTINATION include/sKit)
+
+# TESTS
+include(lib/doctest/doctest.cmake)
+add_executable(BRectTest ${PROJECT_NAME}/BRect.test.cpp)
+target_include_directories(BRectTest PRIVATE lib)
+target_link_libraries(BRectTest ${PROJECT_NAME})
+
+enable_testing()
+doctest_discover_tests(BRectTest)
