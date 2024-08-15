@@ -14,7 +14,6 @@ find_package(glm REQUIRED)
 target_sources(${PROJECT_NAME}
     PRIVATE
         ${SKIT_PUBLIC_HEADERS}
-        ${PROJECT_NAME}/BRect.cpp
         ${PROJECT_NAME}/grids.cpp
 )
 
