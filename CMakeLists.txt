@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(sKit VERSION 0.0.1 LANGUAGES CXX)
+project(sKit VERSION 0.0.2 LANGUAGES CXX)
 
 add_library(${PROJECT_NAME} STATIC)
 
